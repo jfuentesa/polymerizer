@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * Created by Javier Fuentes
@@ -16,7 +17,7 @@ class polymerizer {
     public $polymerSrc = 'components/polymer/polymer.html';
     public $webComponentsSRC = 'components/webcomponentsjs/webcomponents.js';
     public $metaViewport = 'width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes';
-    public $components, $styles = [];
+    public $components, $styles = array();
 
     public function addComponent($component) {
         $this->components[] = $component;
@@ -69,4 +70,4 @@ class polymerizer {
 
         return $dom->saveHTML();
     }
-} 
+}

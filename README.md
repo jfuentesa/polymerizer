@@ -3,7 +3,7 @@ PHP project to apply Polymer in web pages easily
 
 ## Tests
 
-Clone repository, upload to PHP 5.4+ server and start index.php
+Clone repository, upload to PHP 5.3+ server and start index.php
 
 ## Credits
 
