@@ -19,12 +19,33 @@ class polymerizer {
     public $metaViewport = 'width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes';
     public $components, $styles = array();
 
+    public $requiredPolymer = false;
+
     public function addComponent($component) {
         $this->components[] = $component;
     }
 
     public function addStyle($style) {
         $this->styles[] = $style;
+    }
+
+    public function createComponent($element, $template, $script = '') {
+
+        if (!$this->requiredPolymer) {
+            $this->requiredPolymer = true;
+            $this->addComponent('components/polymer/polymer.html');
+        }
+
+        $noscript = ( $script ? '' : 'noscript');
+
+        $polymer_element = <<<POLYMER
+<polymer-element name="$element" $noscript>
+$template
+$script
+</polymer-element>
+POLYMER;
+
+        return $polymer_element;
     }
 
     public function polymerize($buffer) {
