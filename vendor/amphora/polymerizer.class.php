@@ -5,7 +5,7 @@
  * Created by Javier Fuentes
  * Amphora Nuevas Tecnologías S.L.
  *
- * v2015.02.10
+ * v2015.04.29
  *
  */
 
@@ -21,12 +21,20 @@ class polymerizer {
 
     public $requiredPolymer = false;
 
+    static public function factory() {
+        return new polymerizer();
+    }
+
     public function addComponent($component) {
         $this->components[] = $component;
+
+        return $this;
     }
 
     public function addStyle($style) {
         $this->styles[] = $style;
+
+        return $this;
     }
 
     public function createComponent($element, $template, $script = '') {
